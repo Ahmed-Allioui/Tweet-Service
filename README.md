@@ -1,6 +1,11 @@
-# Tweet-Service
-# Presentation
-Tweet Service is a microservice to manage tweets and comments. It provides the following functions :
+## Tweet-Service
+### Presentation
+This repository contains a microservice developed as part of a university project at the Bonn-Rhein-Sieg University of Applied Sciences. The project involved implementing a Twitter-like application using a microservice architecture.
+
+The software was developed collaboratively by a team of four students — including myself — and represents one component of the overall system.
+
+### Functionality
+This microservice provides the following core functions:
   - create a new tweet
   - add comment to a tweet
   - get a tweet by id
@@ -16,17 +21,17 @@ Tweet Service is a microservice to manage tweets and comments. It provides the f
   - delete all tweets of a user
   - delete a comment
 
-# Requirements
+### Requirements
 In order to use the application you need to have the following applications installed:
   - JDK/JRE
   - Docker
   - Docker Compose
 
-# Building the project
+### Building the project
 To build the project:
 > gradlew clean build
 
-# Starting the App
+### Starting the App
 To start the application with the database:
 > docker-compose up -d
 
