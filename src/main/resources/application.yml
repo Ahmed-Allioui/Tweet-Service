@@ -1,0 +1,60 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: tweetservice
+  codec:
+    max-in-memory-size: 10MB
+  r2dbc:
+    username: postgres
+    password: tweetservice
+    url: r2dbc:postgresql://localhost:5432/tweetdb
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    instance: #TODO
+      hostname:
+      nonSecurePort:
+
+logging:
+  level:
+    ROOT: DEBUG
+
+springdoc:
+  api-docs:
+    groups:
+      enable: true
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui
+
+
+services:
+  follow-service:
+    service-name:
+    get-follows:
+      path: getFollows
+      variable: userId
+  hashtag-service:
+    service-name:
+    send-tweet-hashtag:
+      path: parseTweet
+    send-comment-hashtag:
+      path: parseComment
+    update-tweet-likes:
+      path: updateTweetLikes
+      var-id: id
+      var-likes: likes
+    update-comment-likes:
+      path: updateCommentLikes
+      var-id: id
+      var-likes: likes
+    tweets-by-hashtag:
+      path: tweetsByHashtag
+      variable: hashtag
+    comments-by-hashtag:
+      path: commentsByHashtag
+      variable: hashtag

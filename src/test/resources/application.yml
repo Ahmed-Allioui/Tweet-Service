@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+spring:
+  r2dbc:
+    username: sa
+    password:
+    url: r2dbc:h2:mem:///~/db/testdb
+
+services:
+  follow-service:
+    service-name:
+    get-follows:
+      path: getFollows
+      variable: userId
+  hashtag-service:
+    service-name:
+    send-tweet-hashtag:
+      path: parseTweet
+    send-comment-hashtag:
+      path: parseComment
+    update-tweet-likes:
+      path: updateTweetLikes
+      var-id: id
+      var-likes: likes
+    update-comment-likes:
+      path: updateCommentLikes
+      var-id: id
+      var-likes: likes
+    tweets-by-hashtag:
+      path: tweetsByHashtag
+      variable: hashtag
+    comments-by-hashtag:
+      path: commentsByHashtag
+      variable: hashtag

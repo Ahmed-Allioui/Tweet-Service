@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+
+  # database
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: tweetservice
+      POSTGRES_DB: tweetdb
+
+  # tweet service
+
+  tweetservice:
+    build: .
+    ports:
+      - 8081:8081
+    environment:
+      SPRING_R2DBC_URL: r2dbc:postgresql://postgres:tweetservice@db:5432/tweetdb
